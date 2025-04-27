@@ -21,4 +21,8 @@ add_executable(PooProject main.cpp
         Shop.cpp
         Shop.h
         Game.cpp
-        Game.h)
+        Game.h
+        Competition.cpp
+        Competition.h
+        DogBreeds.h
+        HorseBreeds.h)

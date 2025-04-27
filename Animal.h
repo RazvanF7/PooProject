@@ -12,7 +12,6 @@ class Animal {
         std::string name;
         int age;
         std::string advantage;
-        std::string breed;
         int basePerformance;
         int price;
         int energy;
@@ -20,7 +19,7 @@ class Animal {
 
     public:
 
-            Animal(const std::string &name, int age, const std::string &advantage, const std::string &breed, int basePerformance, int price,int energy);
+            Animal(const std::string &name, int age, const std::string &advantage, int basePerformance, int price,int energy);
 
             // Copy constructor
             Animal(const Animal& other);

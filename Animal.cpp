@@ -4,11 +4,10 @@
 
 #include "Animal.h"
 #include <iostream>
-Animal::Animal(const std::string &name, int age, const std::string &advantage, const std::string &breed,int basePerformance, int price, int energy):
+Animal::Animal(const std::string &name, int age, const std::string &advantage,int basePerformance, int price, int energy):
     name(name),
     age(age),
     advantage(advantage),
-    breed(breed),
     basePerformance(basePerformance),
     price(price),
     energy(100)
@@ -18,7 +17,6 @@ Animal::Animal(const Animal& other) :
     name(other.name),
     age(other.age),
     advantage(other.advantage),
-    breed(other.breed),
     basePerformance(other.basePerformance),
     price(other.price),
     energy(other.energy)
@@ -31,7 +29,6 @@ Animal& Animal::operator=(const Animal& other) {
         name = other.name;
         age = other.age;
         advantage = other.advantage;
-        breed = other.breed;
         basePerformance = other.basePerformance;
         price = other.price;
         energy = other.energy;
@@ -46,7 +43,6 @@ Animal::~Animal() = default;
 std::ostream &operator<<(std::ostream &os, const Animal &animal) {
     os  << "Animal name: " << animal.name
         << "\nAge: " << animal.age
-        << "\nBreed: " << animal.breed
         << "\nPerformance: " << animal.basePerformance << "\n"<<
             "\nSpecial Atribute: " << animal.advantage<<"\n"<<
              "Price: "<<animal.price<<"\n";

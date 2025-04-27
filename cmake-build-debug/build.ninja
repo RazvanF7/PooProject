@@ -109,6 +109,12 @@ build CMakeFiles/PooProject.dir/Game.cpp.o: CXX_COMPILER__PooProject_unscanned_D
   OBJECT_DIR = CMakeFiles/PooProject.dir
   OBJECT_FILE_DIR = CMakeFiles/PooProject.dir
 
+build CMakeFiles/PooProject.dir/Competition.cpp.o: CXX_COMPILER__PooProject_unscanned_Debug /home/razvan/CLionProjects/PooProject/Competition.cpp || cmake_object_order_depends_target_PooProject
+  DEP_FILE = CMakeFiles/PooProject.dir/Competition.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/PooProject.dir
+  OBJECT_FILE_DIR = CMakeFiles/PooProject.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target PooProject
@@ -117,7 +123,7 @@ build CMakeFiles/PooProject.dir/Game.cpp.o: CXX_COMPILER__PooProject_unscanned_D
 #############################################
 # Link the executable PooProject
 
-build PooProject: CXX_EXECUTABLE_LINKER__PooProject_Debug CMakeFiles/PooProject.dir/main.cpp.o CMakeFiles/PooProject.dir/Animal.cpp.o CMakeFiles/PooProject.dir/Horse.cpp.o CMakeFiles/PooProject.dir/Player.cpp.o CMakeFiles/PooProject.dir/WeatherCondition.cpp.o CMakeFiles/PooProject.dir/Dog.cpp.o CMakeFiles/PooProject.dir/Job.cpp.o CMakeFiles/PooProject.dir/Rider.cpp.o CMakeFiles/PooProject.dir/Shop.cpp.o CMakeFiles/PooProject.dir/Game.cpp.o
+build PooProject: CXX_EXECUTABLE_LINKER__PooProject_Debug CMakeFiles/PooProject.dir/main.cpp.o CMakeFiles/PooProject.dir/Animal.cpp.o CMakeFiles/PooProject.dir/Horse.cpp.o CMakeFiles/PooProject.dir/Player.cpp.o CMakeFiles/PooProject.dir/WeatherCondition.cpp.o CMakeFiles/PooProject.dir/Dog.cpp.o CMakeFiles/PooProject.dir/Job.cpp.o CMakeFiles/PooProject.dir/Rider.cpp.o CMakeFiles/PooProject.dir/Shop.cpp.o CMakeFiles/PooProject.dir/Game.cpp.o CMakeFiles/PooProject.dir/Competition.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/PooProject.dir
   POST_BUILD = :

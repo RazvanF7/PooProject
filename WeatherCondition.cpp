@@ -1,37 +1,38 @@
-//
-// Created by razvan on 4/9/25.
-//
-
 #include "WeatherCondition.h"
+#include "HorseBreeds.h"
+#include "DogBreeds.h"
 
-double applyWeatherEffect(double performance, WeatherCondition weather, const std::string& breed) {
+// Overload for horses
+double applyWeatherEffect(double performance, WeatherCondition weather, HorseBreed breed) {
     switch (weather) {
         case WeatherCondition::Rainy:
-            if (breed == "Mustang" || breed == "Greyhound") {
-                return performance*1.2;
-            }
-            return performance * 0.8;
+            return (breed == HorseBreed::Mustang) ? performance * 1.2 : performance * 0.8;
         case WeatherCondition::Snowy:
-            if (breed=="Icelandic" || breed=="Husky") {
-                return performance*1.2;
-            }
-            return performance * 0.7;
-
+            return (breed == HorseBreed::American) ? performance * 1.2 : performance * 0.7;
         case WeatherCondition::Windy:
-            if (breed=="American" || breed=="Border Collie") {
-                return performance*1.2;
-            }
-            return performance * 0.9;
+            return (breed == HorseBreed::American) ? performance * 1.2 : performance * 0.9;
         case WeatherCondition::Foggy:
-            if (breed=="Arabian" || breed=="German Shepard") {
-                return performance*1.2;
-            }
-            return performance * 0.85;
+            return (breed == HorseBreed::Arabian) ? performance * 1.2 : performance * 0.85;
         case WeatherCondition::Sunny:
-            if (breed=="Spanish" || breed=="Dalmatian") {
-                return performance*1.2;
-            }
+            return (breed == HorseBreed::Spanish) ? performance * 1.2 : performance;
+        default:
             return performance;
+    }
+}
+
+// Overload for dogs
+double applyWeatherEffect(double performance, WeatherCondition weather, DogBreed breed) {
+    switch (weather) {
+        case WeatherCondition::Rainy:
+            return (breed == DogBreed::Greyhound) ? performance * 1.2 : performance * 0.8;
+        case WeatherCondition::Snowy:
+            return (breed == DogBreed::GermanShepherd) ? performance * 1.2 : performance * 0.7;
+        case WeatherCondition::Windy:
+            return (breed == DogBreed::BorderCollie) ? performance * 1.2 : performance * 0.9;
+        case WeatherCondition::Foggy:
+            return (breed == DogBreed::GermanShepherd) ? performance * 1.2 : performance * 0.85;
+        case WeatherCondition::Sunny:
+            return (breed == DogBreed::Dalmatian) ? performance * 1.2 : performance;
         default:
             return performance;
     }

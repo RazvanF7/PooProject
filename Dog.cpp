@@ -4,33 +4,32 @@
 
 #include "Dog.h"
 #include <iostream>
-Dog::Dog(const std::string &name, int age, const std::string &advantage,
-             const std::string &breed, const int basePerformance, int price, int obedience, int agility,int energy)
-    : Animal(name, age, advantage, breed, basePerformance,price,energy),
+Dog::Dog(const std::string &name, int age, const std::string &advantage, DogBreed breed,
+             const int basePerformance, int price, int obedience, int agility,int energy)
+    : Animal(name, age, advantage, basePerformance,price,energy),
       obedience(obedience),
-      agility(agility)
-{}
+      agility(agility),
+      breed(breed)
+{
+    applyBreedUpgrades();
+}
 
 // Copy constructor
 Dog::Dog(const Dog& other) :
-    // Call the base class (Animal) copy constructor first
     Animal(other),
-    // Copy the Dog-specific member variables
     obedience(other.obedience),
-    agility(other.agility)
+    agility(other.agility),
+    breed(other.breed)
 {
 }
 
 // Assignment operator
 Dog& Dog::operator=(const Dog& other) {
-    // Check for self-assignment
     if (this != &other) {
-        // Call base class assignment operator
         Animal::operator=(other);
-
-        // Copy Dog-specific member variables
         obedience = other.obedience;
         agility = other.agility;
+        breed = other.breed;
     }
 
     // Return a reference to this object
@@ -82,22 +81,27 @@ void Dog::applyAdvantage() {
 }
 
 void Dog::applyBreedUpgrades() {
-    if (breed=="Border Collie") {
-        agility+=40;
-        obedience-=20;
-    }
-    if (breed=="Greyhound") {
-        agility-=20;
-        obedience+=40;
-    }
-
-    if (breed=="Dalmatian") {
-        obedience+=30;
-        agility-=10;
-    }
-    if (breed=="German Shepherd") {
-        agility+=30;
-        obedience-=20;
+    switch (breed) {
+        case DogBreed::BorderCollie:
+            agility += 40;
+        obedience -= 20;
+        break;
+        case DogBreed::Greyhound:
+            agility -= 20;
+        obedience += 40;
+        break;
+        case DogBreed::Dalmatian:
+            obedience += 30;
+        agility -= 10;
+        break;
+        case DogBreed::GermanShepherd:
+            agility += 30;
+        obedience -= 20;
+        break;
+        case DogBreed::Husky:
+            obedience -= 30;
+            agility += 25;
+        break;
     }
 }
 

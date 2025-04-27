@@ -7,15 +7,18 @@
 
 #include "Animal.h"
 #include <string>
+#include "DogBreeds.h"
+
 
 class Dog : public Animal {
 private:
     int obedience;
     int agility;
-
+    DogBreed breed;
 public:
     Dog(const std::string &name, int age, const std::string &advantage,
-        const std::string &breed, int basePerformance, int price, int obedience, int agility, int energy);
+       DogBreed breed, int basePerformance, int price, int obedience,
+       int agility, int energy);
 
     // Copy constructor
     Dog(const Dog& other);

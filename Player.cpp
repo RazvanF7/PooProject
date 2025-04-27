@@ -38,6 +38,8 @@ Player& Player:: operator=(const Player &other) {
         money = other.money;
         wins = other.wins;
         losses = other.losses;
+        horses = other.horses;
+        dogs = other.dogs;
     }
     return *this;
 }

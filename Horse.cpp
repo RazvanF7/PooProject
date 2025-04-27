@@ -5,19 +5,23 @@
 #include "Horse.h"
 #include <stdexcept>
 Horse::Horse(const std::string &name, int age, const std::string &advantage,
-             const std::string &breed, int basePerformance, int price, int energy, int speed, int endurance)
-    : Animal(name, age, advantage, breed, basePerformance, price, energy),
+             HorseBreed breed, int basePerformance, int price, int energy,
+             int speed, int endurance)
+    : Animal(name, age, advantage, basePerformance, price, energy),
       endurance(endurance),
-      speed(speed)
-{}
+      speed(speed),
+      breed(breed)
+{
+    applyBreedUpgrades();  // Apply breed modifiers on creation
+}
 
 // Copy constructor
 Horse::Horse(const Horse& other) :
 
     Animal(other),
-
     endurance(other.endurance),
-    speed(other.speed)
+    speed(other.speed),
+    breed(other.breed)
 {
 
 }
@@ -82,22 +86,26 @@ void Horse::applyAdvantage() {
 }
 
 void Horse::applyBreedUpgrades() {
-    if (breed=="Arabian") {
-        speed+=40;
-        endurance-=20;
-    }
-    if (breed=="American") {
-        speed-=20;
-        endurance+=40;
-    }
-
-    if (breed=="Mustang") {
-        endurance+=30;
-        speed-=10;
-    }
-    if (breed=="Spanish") {
-        speed+=30;
-        endurance-=20;
+    switch (breed) {
+        case HorseBreed::Arabian:
+            speed += 40;
+        endurance -= 20;
+        break;
+        case HorseBreed::American:
+            speed -= 20;
+        endurance += 40;
+        break;
+        case HorseBreed::Mustang:
+            endurance += 30;
+        speed -= 10;
+        break;
+        case HorseBreed::Spanish:
+            speed += 30;
+        endurance -= 20;
+        break;
+        case HorseBreed::Icelandic:
+            endurance += 40;
+            speed -= 5;
     }
 }
 
